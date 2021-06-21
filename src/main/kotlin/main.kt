@@ -4,21 +4,21 @@ fun main() {
     val accountMatheus = Account()
     accountMatheus.owner = "Matheus"
     accountMatheus.numberAccount = 1000
-    accountMatheus.balance = 0.0
+    accountMatheus.setBalance(535.0)
 
     println(
         "Account Owner: ${accountMatheus.owner}," +
-                " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
+                " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.getBalance()}"
     )
 
     val accountFran = Account()
     accountFran.owner = "Fran"
     accountFran.numberAccount = 2000
-    accountFran.balance = 1550.0
+    accountFran.setBalance(1550.0)
 
     println(
         "Account Owner: ${accountFran.owner}," +
-                " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
+                " Number: ${accountFran.numberAccount}, Balance: ${accountFran.getBalance()}"
     )
 
     accountMatheus.deposit(50.0)
@@ -33,23 +33,37 @@ fun main() {
     accountFran.withdraw(1000.0)
     printAccountInformation(accountFran, "Withdraw", 1000.0)
 
-    accountFran.transfer(accountMatheus, 590.0)
-    printAccountInformation(accountFran, "Transfer", 590.0)
-    printAccountInformation(accountMatheus, "Receive", 590.0)
+    if (accountFran.transfer(accountMatheus, 700.0)) {
+        printAccountInformation(accountFran, "Transfer", 700.0)
+        printAccountInformation(accountMatheus, "Receive", 700.0)
+    } else {
+        println()
+        println("Transfer Failed")
+    }
 }
 
 fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {
     println()
     println()
     println("$operation $ $value in ${accountMatheus.owner}' Account ")
-    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
+    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.getBalance()}")
 }
 
 class Account {
 
     var owner = ""
     var numberAccount = 0
-    var balance = 0.0
+    private var balance = 0.0
+
+    fun getBalance(): Double {
+        return this.balance;
+    }
+
+    fun setBalance(value: Double) {
+        if (value > 0) {
+            this.balance = value
+        }
+    }
 
     fun deposit(balance: Double) {
         if (balance == 0.0) {
@@ -80,20 +94,23 @@ class Account {
         this.balance -= value
     }
 
-    fun transfer(accountDestination: Account, value: Double) {
+    fun transfer(accountDestination: Account, value: Double): Boolean {
         when {
+            this.balance >= value -> {
+                this.balance -= value;
+                accountDestination.deposit(value)
+                return true
+            }
             this.balance < 0.0 -> {
                 println()
                 println("Your balance is negative $ ${this.balance}")
-                return
             }
             this.balance == 0.0 -> {
                 println()
                 println("Your balance is empty $ ${this.balance}")
             }
         }
-        this.balance -= value;
-        accountDestination.deposit(value)
+        return false;
     }
 
 }
