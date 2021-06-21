@@ -1,19 +1,14 @@
 fun main() {
     println("Welcome to Bytebank")
 
-    val accountMatheus = Account()
-    accountMatheus.owner = "Matheus"
-    accountMatheus.numberAccount = 1000
-    accountMatheus.deposit(-535.0)
-
+    val accountMatheus = Account("Matheus", 1000)
+    accountMatheus.deposit(535.0)
     println(
         "Account Owner: ${accountMatheus.owner}," +
                 " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
     )
 
-    val accountFran = Account()
-    accountFran.owner = "Fran"
-    accountFran.numberAccount = 2000
+    val accountFran = Account("Fran", 2000)
     accountFran.deposit(1550.0)
 
     println(
@@ -49,12 +44,20 @@ fun printAccountInformation(accountMatheus: Account, operation: String, value: D
     println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 }
 
-class Account {
+class Account(
+    var owner: String,
+    var numberAccount: Int
+) {
 
-    var owner = ""
-    var numberAccount = 0
     var balance = 0.0
         private set
+
+//    segundo construtor, pode ser usado para uma logica a mais na hora de
+//    iniciar a classe, mas por padrao o construtor primario deve ser usado
+//    constructor(owner: String, numberAccount: Int) {
+//        this.owner = owner
+//        this.numberAccount = numberAccount
+//    }
 
     fun deposit(value: Double) {
         if (value < 0.0) {
@@ -116,11 +119,8 @@ fun copyAndReferenciesTests() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaJoao = Account()
-    contaJoao.owner = "João"
-    var contaMaria = Account()
-    contaMaria.owner = "Maria"
-    contaJoao.owner = "João"
+    val contaJoao = Account("João", 1001)
+    var contaMaria = Account("Maria", 1002)
 
     println("owner conta joao: ${contaJoao.owner}")
     println("owner conta maria: ${contaMaria.owner}")
