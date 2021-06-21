@@ -4,7 +4,7 @@ fun main() {
     val accountMatheus = Account()
     accountMatheus.owner = "Matheus"
     accountMatheus.numberAccount = 1000
-    accountMatheus.balance = 535.0
+    accountMatheus.balance = 0.0
 
     println(
         "Account Owner: ${accountMatheus.owner}," +
@@ -41,7 +41,6 @@ fun main() {
 fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {
     println()
     println()
-    println(operation)
     println("$operation $ $value in ${accountMatheus.owner}' Account ")
     println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 }
@@ -62,29 +61,34 @@ class Account {
     fun withdraw(value: Double) {
         when {
             this.balance < 0.0 -> {
+                println()
                 println("Your balance is negative $ ${this.balance}")
+                return
             }
             this.balance == 0.0 -> {
+                println()
                 println("Your balance is empty $ ${this.balance}")
+                return
             }
             this.balance < value -> {
-                println("The value informed is greater than the available $ ${this.balance}")
+                println()
+                println("${this.owner}, the value informed is greater than the available $ ${this.balance}")
+                return
             }
         }
 
-        if (this.balance < 0.0) {
-            println("Your balance is negative ${this.balance}")
-        }
         this.balance -= value
     }
 
     fun transfer(accountDestination: Account, value: Double) {
         when {
             this.balance < 0.0 -> {
+                println()
                 println("Your balance is negative $ ${this.balance}")
                 return
             }
             this.balance == 0.0 -> {
+                println()
                 println("Your balance is empty $ ${this.balance}")
             }
         }
