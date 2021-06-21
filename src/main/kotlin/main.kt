@@ -4,21 +4,21 @@ fun main() {
     val accountMatheus = Account()
     accountMatheus.owner = "Matheus"
     accountMatheus.numberAccount = 1000
-    accountMatheus.setBalance(535.0)
+    accountMatheus.deposit(-535.0)
 
     println(
         "Account Owner: ${accountMatheus.owner}," +
-                " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.getBalance()}"
+                " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
     )
 
     val accountFran = Account()
     accountFran.owner = "Fran"
     accountFran.numberAccount = 2000
-    accountFran.setBalance(1550.0)
+    accountFran.deposit(1550.0)
 
     println(
         "Account Owner: ${accountFran.owner}," +
-                " Number: ${accountFran.numberAccount}, Balance: ${accountFran.getBalance()}"
+                " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
     )
 
     accountMatheus.deposit(50.0)
@@ -46,30 +46,22 @@ fun printAccountInformation(accountMatheus: Account, operation: String, value: D
     println()
     println()
     println("$operation $ $value in ${accountMatheus.owner}' Account ")
-    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.getBalance()}")
+    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 }
 
 class Account {
 
     var owner = ""
     var numberAccount = 0
-    private var balance = 0.0
+    var balance = 0.0
+        private set
 
-    fun getBalance(): Double {
-        return this.balance;
-    }
-
-    fun setBalance(value: Double) {
-        if (value > 0) {
-            this.balance = value
+    fun deposit(value: Double) {
+        if (value < 0.0) {
+            println("The value informed is negative")
+            return
         }
-    }
-
-    fun deposit(balance: Double) {
-        if (balance == 0.0) {
-            println("The value informed is zero")
-        }
-        this.balance += balance
+        this.balance += value
     }
 
     fun withdraw(value: Double) {
