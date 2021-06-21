@@ -1,14 +1,17 @@
 fun main() {
     println("Welcome to Bytebank")
 
-    val accountMatheus = Account("Matheus", 1000)
+    // usando labels na criacao de uma conta
+    val accountMatheus = Account(owner = "Matheus", numberAccount = 1000)
     accountMatheus.deposit(535.0)
     println(
         "Account Owner: ${accountMatheus.owner}," +
                 " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
     )
 
-    val accountFran = Account("Fran", 2000)
+    // usando labels na criacao de uma conta, a ordem nao importa,desde que sejam
+    // usados os mesmos nomes de variaveis que estao no construtor
+    val accountFran = Account(numberAccount= 2000, owner = "Fran")
     accountFran.deposit(1550.0)
 
     println(
@@ -28,7 +31,8 @@ fun main() {
     accountFran.withdraw(1000.0)
     printAccountInformation(accountFran, "Withdraw", 1000.0)
 
-    if (accountFran.transfer(accountMatheus, 700.0)) {
+    // as labels também funcionam para funcoes
+    if (accountFran.transfer(accountDestination = accountMatheus, value = 700.0)) {
         printAccountInformation(accountFran, "Transfer", 700.0)
         printAccountInformation(accountMatheus, "Receive", 700.0)
     } else {
@@ -45,8 +49,8 @@ fun printAccountInformation(accountMatheus: Account, operation: String, value: D
 }
 
 class Account(
-    var owner: String,
-    var numberAccount: Int
+    val owner: String,
+    val numberAccount: Int
 ) {
 
     var balance = 0.0
@@ -120,7 +124,7 @@ fun copyAndReferenciesTests() {
     println("numeroY $numeroY")
 
     val contaJoao = Account("João", 1001)
-    var contaMaria = Account("Maria", 1002)
+    val contaMaria = Account("Maria", 1002)
 
     println("owner conta joao: ${contaJoao.owner}")
     println("owner conta maria: ${contaMaria.owner}")
