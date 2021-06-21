@@ -6,18 +6,30 @@ fun main() {
     accountMatheus.numberAccount = 1000
     accountMatheus.balance = 535.0
 
-    println("Account Owner: ${accountMatheus.owner}," +
-            " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}")
+    println(
+        "Account Owner: ${accountMatheus.owner}," +
+                " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
+    )
 
     val accountFran = Account()
     accountFran.owner = "Fran"
     accountFran.numberAccount = 2000
     accountFran.balance = 1550.0
 
-    println("Account Owner: ${accountFran.owner}," +
-            " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}")
+    println(
+        "Account Owner: ${accountFran.owner}," +
+                " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
+    )
 
+    println()
+    println("Depositing $50.00 in ${accountMatheus.owner}' Account ")
+    accountMatheus.deposit(50.0)
+    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 
+    println ()
+    println("Depositing $50.00 in ${accountFran.owner}'s Account ")
+    accountFran.deposit(100.0)
+    println("Account Owner: ${accountFran.owner}, Balance: ${accountFran.balance}")
 
 }
 
@@ -27,9 +39,17 @@ class Account {
     var numberAccount = 0
     var balance = 0.0
 
+    fun deposit(balance: Double) {
+        if (balance == 0.0) {
+            println("The value informed is zero")
+        }
+        this.balance += balance
+    }
+
 }
 
-fun copyAndReferenciesTests(){
+
+fun copyAndReferenciesTests() {
     val numeroX = 10
     var numeroY = numeroX
     numeroY++
