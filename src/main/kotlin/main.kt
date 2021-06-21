@@ -21,16 +21,29 @@ fun main() {
                 " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
     )
 
-    println()
-    println("Depositing $50.00 in ${accountMatheus.owner}' Account ")
     accountMatheus.deposit(50.0)
-    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
+    printAccountInformation(accountMatheus, "Deposit", 50.0)
 
-    println ()
-    println("Depositing $50.00 in ${accountFran.owner}'s Account ")
     accountFran.deposit(100.0)
-    println("Account Owner: ${accountFran.owner}, Balance: ${accountFran.balance}")
+    printAccountInformation(accountFran, "Deposit", 100.0)
 
+    accountMatheus.withdraw(100.0)
+    printAccountInformation(accountMatheus, "Withdraw", 100.0)
+
+    accountFran.withdraw(1000.0)
+    printAccountInformation(accountFran, "Withdraw", 1000.0)
+
+    accountFran.transfer(accountMatheus, 590.0)
+    printAccountInformation(accountFran, "Transfer", 590.0)
+    printAccountInformation(accountMatheus, "Receive", 590.0)
+}
+
+fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {
+    println()
+    println()
+    println(operation)
+    println("$operation $ $value in ${accountMatheus.owner}' Account ")
+    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 }
 
 class Account {
@@ -44,6 +57,39 @@ class Account {
             println("The value informed is zero")
         }
         this.balance += balance
+    }
+
+    fun withdraw(value: Double) {
+        when {
+            this.balance < 0.0 -> {
+                println("Your balance is negative $ ${this.balance}")
+            }
+            this.balance == 0.0 -> {
+                println("Your balance is empty $ ${this.balance}")
+            }
+            this.balance < value -> {
+                println("The value informed is greater than the available $ ${this.balance}")
+            }
+        }
+
+        if (this.balance < 0.0) {
+            println("Your balance is negative ${this.balance}")
+        }
+        this.balance -= value
+    }
+
+    fun transfer(accountDestination: Account, value: Double) {
+        when {
+            this.balance < 0.0 -> {
+                println("Your balance is negative $ ${this.balance}")
+                return
+            }
+            this.balance == 0.0 -> {
+                println("Your balance is empty $ ${this.balance}")
+            }
+        }
+        this.balance -= value;
+        accountDestination.deposit(value)
     }
 
 }
