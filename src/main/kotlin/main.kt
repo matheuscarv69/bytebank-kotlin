@@ -1,6 +1,35 @@
 fun main() {
     println("Welcome to Bytebank")
 
+    val accountMatheus = Account()
+    accountMatheus.owner = "Matheus"
+    accountMatheus.numberAccount = 1000
+    accountMatheus.balance = 535.0
+
+    println("Account Owner: ${accountMatheus.owner}," +
+            " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}")
+
+    val accountFran = Account()
+    accountFran.owner = "Fran"
+    accountFran.numberAccount = 2000
+    accountFran.balance = 1550.0
+
+    println("Account Owner: ${accountFran.owner}," +
+            " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}")
+
+}
+
+class Account {
+
+    var owner = ""
+    var numberAccount = 0
+    var balance = 0.0
+
+
+}
+
+
+fun loopingsTest() {
     // for usando range
     println("For Tradicional com Range")
     for (i in 1..5) {
@@ -50,7 +79,7 @@ fun main() {
 
     println("While")
     var i = 0
-    while (i < 5){
+    while (i < 5) {
         println("========================")
         // val -> nao pode ser modificado
         val owner = "Matheus $i"
@@ -62,7 +91,7 @@ fun main() {
         println("Balance: $balance")
         println()
 
-        if(i == 3){
+        if (i == 3) {
             break
         }
 
@@ -73,12 +102,7 @@ fun main() {
     do {
         j++
         println("Do while running $j++")
-    }while (j < 5)
-
-
-//    balance -= 1000
-//    conditionalsTest(balance)
-
+    } while (j < 5)
 }
 
 /**
