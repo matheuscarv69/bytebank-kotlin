@@ -1,18 +1,20 @@
 fun main() {
     println("Welcome to Bytebank")
 
-    val firstName: String
-    val lastName: String
+    // val -> nao pode ser modificado
+    val owner = "Matheus"
 
-    firstName = "Matheus"
-    lastName = "Carvalho"
+    // owner = "Fulano" // Da erro
 
-    println(firstName + " " + lastName)
+    println("Owner $owner")
 
-    val n1 = 12
-    val n2 = 24
-    val amount = n1 + n2
+    // var -> pode ser modificado
+    var lastNameOwner = "Carvalho"
 
-    println("Amount : " + amount)
+    println("LastName Owner: $lastNameOwner")
+
+    lastNameOwner = "Almeida" // aceita por ser var
+    println("Updated LastName Owner: $lastNameOwner")
+
 
 }
