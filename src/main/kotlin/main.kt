@@ -3,18 +3,17 @@ fun main() {
 
     // val -> nao pode ser modificado
     val owner = "Matheus"
+    val numberAccount = 1000
+    var balance = 0.0
 
-    // owner = "Fulano" // Da erro
+    balance = 100 + 2.0
+    balance += 200
 
-    println("Owner $owner")
+    println("Owner: $owner")
+    println("Number Account: $numberAccount")
+    println("Balance: $balance")
 
-    // var -> pode ser modificado
-    var lastNameOwner = "Carvalho"
 
-    println("LastName Owner: $lastNameOwner")
-
-    lastNameOwner = "Almeida" // aceita por ser var
-    println("Updated LastName Owner: $lastNameOwner")
 
 
 }
