@@ -14,6 +14,12 @@ fun main() {
     println("Balance: $balance")
 
 
+    balance -= 1000
+    when {
+        balance > 0.0 -> println("Account is positive")
+        balance == 0.0 -> println("Account is neutral")
+        else -> println("Account is negative")
+    }
 
 
 }
