@@ -17,6 +17,8 @@ fun main() {
     println("Account Owner: ${accountFran.owner}," +
             " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}")
 
+
+
 }
 
 class Account {
@@ -25,7 +27,27 @@ class Account {
     var numberAccount = 0
     var balance = 0.0
 
+}
 
+fun copyAndReferenciesTests(){
+    val numeroX = 10
+    var numeroY = numeroX
+    numeroY++
+
+    println("numeroX $numeroX")
+    println("numeroY $numeroY")
+
+    val contaJoao = Account()
+    contaJoao.owner = "João"
+    var contaMaria = Account()
+    contaMaria.owner = "Maria"
+    contaJoao.owner = "João"
+
+    println("owner conta joao: ${contaJoao.owner}")
+    println("owner conta maria: ${contaMaria.owner}")
+
+    println(contaJoao)
+    println(contaMaria)
 }
 
 
