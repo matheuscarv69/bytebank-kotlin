@@ -16,7 +16,7 @@ fun main() {
 
     val fran = Manager(
         name = "Fran",
-        cpf = "111.111.111-11",
+        cpf = "222.222.222-22",
         salary = 2000.0,
         password = 1234
     )
@@ -34,7 +34,7 @@ fun main() {
 
     val gui = Director(
         name = "Gui",
-        cpf = "111.111.111-11",
+        cpf = "333.333.333-33",
         salary = 4000.0,
         password = 1234,
         plr = 200.0
@@ -46,10 +46,21 @@ fun main() {
     println("bonus ${gui.bonus}")
     println("PLR ${gui.plr}")
 
+    val maria = Analist(
+        name = "Maria",
+        cpf = "444.444.444-44",
+        salary = 3000.0,
+    )
+
+    println("name ${maria.name}")
+    println("cpf ${maria.cpf}")
+    println("salary ${maria.salary}")
+    println("bonus ${maria.bonus}")
+
     if (gui.autentica(1234)) {
-        println("Director ${gui.name} is autenticated")
+        println("Analist ${maria.name} is autenticated")
     } else {
-        println("Director ${gui.name} is not autenticated")
+        println("Analist ${maria.name} is not autenticated")
     }
 
     val calculator = CalculatorBonus()
@@ -57,6 +68,7 @@ fun main() {
     calculator.register(matheus)
     calculator.register(fran)
     calculator.register(gui)
+    calculator.register(maria)
 
     println("Total of bonus: ${calculator.total}")
 
