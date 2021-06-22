@@ -1,3 +1,5 @@
+package entities
+
 class Manager(
     name: String,
     cpf: String,
@@ -9,9 +11,10 @@ class Manager(
     salary = salary
 ) {
 
-//    fun bonus(): Double {
-//        return salary * 0.2
-//    }
+    override val bonus: Double
+        get() {
+            return salary * 0.2
+        }
 
     fun autentica(password: Int): Boolean {
         if (this.password == password) {

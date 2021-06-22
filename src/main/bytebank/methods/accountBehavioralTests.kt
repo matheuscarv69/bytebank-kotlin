@@ -1,9 +1,11 @@
+import entities.Account
+
 fun accountBehavioralTests() {
     // usando labels na criacao de uma conta
     val accountMatheus = Account(owner = "Matheus", numberAccount = 1000)
     accountMatheus.deposit(535.0)
     println(
-        "Account Owner: ${accountMatheus.owner}," +
+        "entities.Account Owner: ${accountMatheus.owner}," +
                 " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
     )
 
@@ -13,7 +15,7 @@ fun accountBehavioralTests() {
     accountFran.deposit(1550.0)
 
     println(
-        "Account Owner: ${accountFran.owner}," +
+        "entities.Account Owner: ${accountFran.owner}," +
                 " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
     )
 

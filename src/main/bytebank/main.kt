@@ -1,3 +1,8 @@
+import entities.Account
+import entities.Director
+import entities.Employee
+import entities.Manager
+
 fun main() {
     println("Welcome to Bytebank")
 
@@ -10,7 +15,7 @@ fun main() {
     println("name ${matheus.name}")
     println("cpf ${matheus.cpf}")
     println("salary ${matheus.salary}")
-    println("bonus ${matheus.bonus()}")
+    println("bonus ${matheus.bonus}")
 
     val fran = Manager(
         name = "Fran",
@@ -22,11 +27,11 @@ fun main() {
     println("name ${fran.name}")
     println("cpf ${fran.cpf}")
     println("salary ${fran.salary}")
-    println("bonus ${fran.bonus()}")
+    println("bonus ${fran.bonus}")
 
-    if(fran.autentica(21234)){
+    if (fran.autentica(21234)) {
         println("Manager ${fran.name} is autenticated")
-    }else{
+    } else {
         println("Manager ${fran.name} is not autenticated")
     }
 
@@ -41,13 +46,13 @@ fun main() {
     println("name ${gui.name}")
     println("cpf ${gui.cpf}")
     println("salary ${gui.salary}")
-    println("bonus ${gui.bonus()}")
+    println("bonus ${gui.bonus}")
     println("PLR ${gui.plr}")
 
-    if(gui.autentica(1234)){
-        println("Manager ${gui.name} is autenticated")
-    }else{
-        println("Manager ${gui.name} is not autenticated")
+    if (gui.autentica(1234)) {
+        println("Director ${gui.name} is autenticated")
+    } else {
+        println("Director ${gui.name} is not autenticated")
     }
 
 }
@@ -56,7 +61,7 @@ fun main() {
 fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {
     println()
     println()
-    println("$operation $ $value in ${accountMatheus.owner}' Account ")
-    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
+    println("$operation $ $value in ${accountMatheus.owner}' entities.Account ")
+    println("entities.Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 }
 

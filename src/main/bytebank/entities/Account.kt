@@ -1,3 +1,5 @@
+package entities
+
 class Account(
     val owner: String,
     val numberAccount: Int
