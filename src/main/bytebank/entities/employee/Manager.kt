@@ -1,4 +1,4 @@
-package entities
+package entities.employee
 
 class Manager(
     name: String,

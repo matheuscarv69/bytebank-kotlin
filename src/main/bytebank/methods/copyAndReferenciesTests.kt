@@ -1,4 +1,4 @@
-import entities.Account
+import entities.account.Account
 
 fun copyAndReferenciesTests() {
     val numeroX = 10

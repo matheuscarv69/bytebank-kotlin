@@ -4,16 +4,16 @@
 fun conditionalsTest(balance: Double) {
 
 //    if(balance > 0.0){
-//        println("entities.Account is positive")
+//        println("entities.account.Account is positive")
 //    } else if (balance == 0.0){
-//        println("entities.Account is neutral")
+//        println("entities.account.Account is neutral")
 //    } else {
-//        println("entities.Account is negative")
+//        println("entities.account.Account is negative")
 //    }
 
     when {
-        balance > 0.0 -> println("entities.Account is positive")
-        balance == 0.0 -> println("entities.Account is neutral")
-        else -> println("entities.Account is negative")
+        balance > 0.0 -> println("entities.account.Account is positive")
+        balance == 0.0 -> println("entities.account.Account is neutral")
+        else -> println("entities.account.Account is negative")
     }
 }

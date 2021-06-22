@@ -1,76 +1,54 @@
-import entities.*
+import entities.account.Account
+import entities.account.CurrentAccount
+import entities.account.SavingsAccount
 
 fun main() {
     println("Welcome to Bytebank")
 
-    val matheus = Employee(
-        name = "Matheus",
-        cpf = "111.111.111-11",
-        salary = 1000.0,
+    val currentAccount = CurrentAccount(
+        owner = "Matheus",
+        numberAccount = 1000
     )
 
-    println("name ${matheus.name}")
-    println("cpf ${matheus.cpf}")
-    println("salary ${matheus.salary}")
-    println("bonus ${matheus.bonus}")
-
-    val fran = Manager(
-        name = "Fran",
-        cpf = "222.222.222-22",
-        salary = 2000.0,
-        password = 1234
+    val savingsAccount = SavingsAccount(
+        owner = "Fran",
+        numberAccount = 1001
     )
 
-    println("name ${fran.name}")
-    println("cpf ${fran.cpf}")
-    println("salary ${fran.salary}")
-    println("bonus ${fran.bonus}")
+    currentAccount.deposit(1000.0)
+    savingsAccount.deposit(1000.0)
 
-    if (fran.autentica(21234)) {
-        println("Manager ${fran.name} is autenticated")
-    } else {
-        println("Manager ${fran.name} is not autenticated")
-    }
+    println("Deposit")
+    println("Current Balance: $ ${currentAccount.balance}")
+    println("Saving Balance: $ ${savingsAccount.balance}")
 
-    val gui = Director(
-        name = "Gui",
-        cpf = "333.333.333-33",
-        salary = 4000.0,
-        password = 1234,
-        plr = 200.0
+    currentAccount.withdraw(100.0)
+    savingsAccount.withdraw(100.0)
+
+    println("withdraw")
+    println("Current Balance: $ ${currentAccount.balance}")
+    println("Saving Balance: $ ${savingsAccount.balance}")
+
+
+    currentAccount.transfer(
+        accountDestination = savingsAccount,
+        value = 100.0
     )
 
-    println("name ${gui.name}")
-    println("cpf ${gui.cpf}")
-    println("salary ${gui.salary}")
-    println("bonus ${gui.bonus}")
-    println("PLR ${gui.plr}")
+    println("Transfer Current to Saving")
+    println("Current Balance: $ ${currentAccount.balance}")
+    println("Saving Balance: $ ${savingsAccount.balance}")
 
-    val maria = Analist(
-        name = "Maria",
-        cpf = "444.444.444-44",
-        salary = 3000.0,
+    savingsAccount.transfer(
+        accountDestination = currentAccount,
+        value = 100.0
     )
 
-    println("name ${maria.name}")
-    println("cpf ${maria.cpf}")
-    println("salary ${maria.salary}")
-    println("bonus ${maria.bonus}")
+    println("Transfer Saving to Current")
+    println("Current Balance: $ ${currentAccount.balance}")
+    println("Saving Balance: $ ${savingsAccount.balance}")
 
-    if (gui.autentica(1234)) {
-        println("Analist ${maria.name} is autenticated")
-    } else {
-        println("Analist ${maria.name} is not autenticated")
-    }
 
-    val calculator = CalculatorBonus()
-
-    calculator.register(matheus)
-    calculator.register(fran)
-    calculator.register(gui)
-    calculator.register(maria)
-
-    println("Total of bonus: ${calculator.total}")
 
 }
 
@@ -78,7 +56,7 @@ fun main() {
 fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {
     println()
     println()
-    println("$operation $ $value in ${accountMatheus.owner}' entities.Account ")
-    println("entities.Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
+    println("$operation $ $value in ${accountMatheus.owner}' entities.account.Account ")
+    println("entities.account.Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
 }
 

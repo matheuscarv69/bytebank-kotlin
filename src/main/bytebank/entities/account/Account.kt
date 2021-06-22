@@ -1,6 +1,6 @@
-package entities
+package entities.account
 
-class Account(
+open class Account(
     val owner: String,
     val numberAccount: Int
 ) {
@@ -23,7 +23,7 @@ class Account(
         this.balance += value
     }
 
-    fun withdraw(value: Double) {
+    open fun withdraw(value: Double) {
         when {
             this.balance < 0.0 -> {
                 println()

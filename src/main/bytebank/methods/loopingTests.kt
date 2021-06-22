@@ -9,7 +9,7 @@ fun loopingsTest() {
         var balance = i + 10.0
 
         println("Owner: $owner")
-        println("Number entities.Account: $numberAccount")
+        println("Number entities.account.Account: $numberAccount")
         println("Balance: $balance")
         println()
     }
@@ -24,7 +24,7 @@ fun loopingsTest() {
         var balance = i + 10.0
 
         println("Owner: $owner")
-        println("Number entities.Account: $numberAccount")
+        println("Number entities.account.Account: $numberAccount")
         println("Balance: $balance")
         println()
 
@@ -40,7 +40,7 @@ fun loopingsTest() {
         var balance = i + 10.0
 
         println("Owner: $owner")
-        println("Number entities.Account: $numberAccount")
+        println("Number entities.account.Account: $numberAccount")
         println("Balance: $balance")
         println()
 
@@ -56,7 +56,7 @@ fun loopingsTest() {
         var balance = i + 10.0
 
         println("Owner: $owner")
-        println("Number entities.Account: $numberAccount")
+        println("Number entities.account.Account: $numberAccount")
         println("Balance: $balance")
         println()
 

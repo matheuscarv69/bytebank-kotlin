@@ -1,4 +1,4 @@
-package entities
+package entities.employee
 
 open class Employee(
     val name: String,

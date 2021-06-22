@@ -1,4 +1,4 @@
-package entities
+package entities.employee
 
 class Director(
     name: String,

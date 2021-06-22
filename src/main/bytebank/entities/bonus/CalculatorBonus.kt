@@ -1,4 +1,6 @@
-package entities
+package entities.bonus
+
+import entities.employee.Employee
 
 class CalculatorBonus {
 
