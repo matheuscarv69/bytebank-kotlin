@@ -30,6 +30,26 @@ fun main() {
         println("Manager ${fran.name} is not autenticated")
     }
 
+    val gui = Director(
+        name = "Gui",
+        cpf = "111.111.111-11",
+        salary = 4000.0,
+        password = 1234,
+        plr = 2000.0
+    )
+
+    println("name ${gui.name}")
+    println("cpf ${gui.cpf}")
+    println("salary ${gui.salary}")
+    println("bonus ${gui.bonus()}")
+    println("PLR ${gui.plr}")
+
+    if(gui.autentica(1234)){
+        println("Manager ${gui.name} is autenticated")
+    }else{
+        println("Manager ${gui.name} is not autenticated")
+    }
+
 }
 
 

@@ -1,4 +1,4 @@
-class Employee(
+open class Employee(
     val name: String,
     val cpf: String,
     val salary: Double,

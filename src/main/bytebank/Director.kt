@@ -1,8 +1,9 @@
-class Manager(
+class Director(
     name: String,
     cpf: String,
     salary: Double,
-    val password: Int
+    val password: Int,
+    val plr: Double
 ) : Employee(
     name = name,
     cpf = cpf,
