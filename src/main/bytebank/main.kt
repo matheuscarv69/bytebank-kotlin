@@ -40,7 +40,7 @@ fun main() {
         cpf = "111.111.111-11",
         salary = 4000.0,
         password = 1234,
-        plr = 2000.0
+        plr = 200.0
     )
 
     println("name ${gui.name}")

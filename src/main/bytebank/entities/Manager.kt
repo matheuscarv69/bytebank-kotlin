@@ -11,10 +11,7 @@ class Manager(
     salary = salary
 ) {
 
-    override val bonus: Double
-        get() {
-            return salary * 0.2
-        }
+    override val bonus: Double = super.bonus + salary
 
     fun autentica(password: Int): Boolean {
         if (this.password == password) {
