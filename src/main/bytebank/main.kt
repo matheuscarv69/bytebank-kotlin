@@ -4,7 +4,8 @@ fun main() {
     val matheus = Employee(
         name = "Matheus",
         cpf = "111.111.111-11",
-        salary = 1000.0
+        salary = 1000.0,
+        type = 2
     )
 
     println("name ${matheus.name}")
