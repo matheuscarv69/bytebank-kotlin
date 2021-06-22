@@ -1,10 +1,3 @@
-fun main() {
-    println("Welcome to Bytebank")
-
-    accountBehavioralTests()
-}
-
-
 fun accountBehavioralTests() {
     // usando labels na criacao de uma conta
     val accountMatheus = Account(owner = "Matheus", numberAccount = 1000)
@@ -45,11 +38,3 @@ fun accountBehavioralTests() {
         println("Transfer Failed")
     }
 }
-
-fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {
-    println()
-    println()
-    println("$operation $ $value in ${accountMatheus.owner}' Account ")
-    println("Account Owner: ${accountMatheus.owner}, Balance: ${accountMatheus.balance}")
-}
-
