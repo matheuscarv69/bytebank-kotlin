@@ -1,7 +1,4 @@
-import entities.Account
-import entities.Director
-import entities.Employee
-import entities.Manager
+import entities.*
 
 fun main() {
     println("Welcome to Bytebank")
@@ -54,6 +51,14 @@ fun main() {
     } else {
         println("Director ${gui.name} is not autenticated")
     }
+
+    val calculator = CalculatorBonus()
+
+    calculator.register(matheus)
+    calculator.register(fran)
+    calculator.register(gui)
+
+    println("Total of bonus: ${calculator.total}")
 
 }
 
