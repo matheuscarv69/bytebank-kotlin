@@ -11,7 +11,7 @@ class Director(
     cpf = cpf,
     salary = salary,
     password = password
-) {
+), Authenticable {
 
     override val bonus: Double = salary * 0.1 + salary + plr
 

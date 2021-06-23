@@ -1,5 +1,6 @@
 import entities.account.CurrentAccount
 import entities.account.SavingsAccount
+import functions.printAccountInformation
 
 fun accountBehavioralTests() {
     // usando labels na criacao de uma conta

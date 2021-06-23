@@ -1,20 +1,21 @@
 package core
 
 import entities.employee.AdminEmployee
+import entities.employee.Authenticable
 
 class InternalSystem {
 
 
     fun entry(
-        adminEmployee: AdminEmployee,
+        adminEmployee: Authenticable,
         password: Int
     ) {
         if (adminEmployee.autenticate(password)) {
             println("Welcome to Bytebank")
-            println("${adminEmployee.name} is autenticated")
+            println("User is autenticated")
             return
         }
-        println("Opss...${adminEmployee.name} is not autenticated")
+        println("Opss...User is not autenticated")
     }
 
 
