@@ -4,16 +4,15 @@ abstract class AdminEmployee(
     name: String,
     cpf: String,
     salary: Double,
-    val password: Int
+    protected val password: Int
 ) : Employee(
     name = name,
     cpf = cpf,
     salary = salary
-) {
+), Authenticable{
 
-   open fun autenticate(password: Int): Boolean {
-       println("Using implementation by AdminEmployee")
-       if (this.password == password) {
+    override fun autenticate(password: Int): Boolean {
+        if (this.password == password) {
             return true
         }
         return false

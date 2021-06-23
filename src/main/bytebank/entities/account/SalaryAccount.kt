@@ -1,13 +1,12 @@
 package entities.account
 
-class SavingsAccount(
+class SalaryAccount(
     owner: String,
     numberAccount: Int
-) : TransferAccount(
+) : Account(
     owner = owner,
     numberAccount = numberAccount
 ) {
-
     override fun withdraw(value: Double) {
         if (this.balance >= value) {
             this.balance -= value

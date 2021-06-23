@@ -3,7 +3,7 @@ package entities.account
 class CurrentAccount(
     owner: String,
     numberAccount: Int
-) : Account(
+) : TransferAccount(
     owner = owner,
     numberAccount = numberAccount
 ) {
@@ -11,7 +11,7 @@ class CurrentAccount(
     override fun withdraw(value: Double) {
         val tax = value + 0.1
 
-        if(this.balance >= tax){
+        if (this.balance >= tax) {
             this.balance -= tax
         }
 

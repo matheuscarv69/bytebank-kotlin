@@ -1,4 +1,5 @@
 import entities.account.CurrentAccount
+import entities.account.SalaryAccount
 import entities.account.SavingsAccount
 import functions.printAccountInformation
 
@@ -7,7 +8,7 @@ fun accountBehavioralTests() {
     val accountMatheus = CurrentAccount(owner = "Matheus", numberAccount = 1000)
     accountMatheus.deposit(535.0)
     println(
-        "entities.account.Account Owner: ${accountMatheus.owner}," +
+        "Account Owner: ${accountMatheus.owner}," +
                 " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
     )
 
@@ -17,8 +18,16 @@ fun accountBehavioralTests() {
     accountFran.deposit(1550.0)
 
     println(
-        "entities.account.Account Owner: ${accountFran.owner}," +
+        "Account Owner: ${accountFran.owner}," +
                 " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
+    )
+
+    val catSalaryAccount = SalaryAccount(numberAccount = 3000, owner = "Cat")
+    catSalaryAccount.deposit(1000.0)
+
+    println(
+        "Account Owner: ${catSalaryAccount.owner}," +
+                " Number: ${catSalaryAccount.numberAccount}, Balance: ${catSalaryAccount.balance}"
     )
 
     accountMatheus.deposit(50.0)
@@ -33,6 +42,9 @@ fun accountBehavioralTests() {
     accountFran.withdraw(1000.0)
     printAccountInformation(accountFran, "Withdraw", 1000.0)
 
+    catSalaryAccount.withdraw(1000.0)
+    printAccountInformation(catSalaryAccount, "Withdraw", 200.0)
+
     // as labels também funcionam para funcoes
     if (accountFran.transfer(accountDestination = accountMatheus, value = 700.0)) {
         printAccountInformation(accountFran, "Transfer", 700.0)
@@ -41,4 +53,8 @@ fun accountBehavioralTests() {
         println()
         println("Transfer Failed")
     }
+
+//    catSalaryAccount.transfer(200.0, accountMatheus)
+//    catSalaryAccount.transfer(200.0, accountFran)
+
 }

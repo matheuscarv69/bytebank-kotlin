@@ -15,6 +15,7 @@ abstract class Account(
 //        this.numberAccount = numberAccount
 //    }
 
+
     fun deposit(value: Double) {
         if (value < 0.0) {
             println("The value informed is negative")
@@ -25,23 +26,6 @@ abstract class Account(
 
     abstract fun withdraw(value: Double)
 
-    fun transfer(accountDestination: Account, value: Double): Boolean {
-        when {
-            this.balance >= value -> {
-                this.balance -= value;
-                accountDestination.deposit(value)
-                return true
-            }
-            this.balance < 0.0 -> {
-                println()
-                println("Your balance is negative $ ${this.balance}")
-            }
-            this.balance == 0.0 -> {
-                println()
-                println("Your balance is empty $ ${this.balance}")
-            }
-        }
-        return false;
-    }
+
 
 }

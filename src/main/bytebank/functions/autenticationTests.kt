@@ -32,4 +32,5 @@ fun autenticationTests() {
     system.entry(manager, 1234)
     system.entry(director, 1234)
     system.entry(client, 1234)
+
 }

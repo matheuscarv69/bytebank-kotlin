@@ -1,6 +1,5 @@
 package core
 
-import entities.employee.AdminEmployee
 import entities.employee.Authenticable
 
 class InternalSystem {
