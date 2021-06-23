@@ -11,8 +11,9 @@ abstract class AdminEmployee(
     salary = salary
 ) {
 
-    fun autenticate(password: Int): Boolean {
-        if (this.password == password) {
+   open fun autenticate(password: Int): Boolean {
+       println("Using implementation by AdminEmployee")
+       if (this.password == password) {
             return true
         }
         return false
