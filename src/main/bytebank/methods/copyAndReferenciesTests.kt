@@ -1,4 +1,5 @@
-import entities.account.Account
+import entities.account.CurrentAccount
+import entities.account.SavingsAccount
 
 fun copyAndReferenciesTests() {
     val numeroX = 10
@@ -8,8 +9,8 @@ fun copyAndReferenciesTests() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaJoao = Account("João", 1001)
-    val contaMaria = Account("Maria", 1002)
+    val contaJoao = CurrentAccount("João", 1001)
+    val contaMaria = SavingsAccount("Maria", 1002)
 
     println("owner conta joao: ${contaJoao.owner}")
     println("owner conta maria: ${contaMaria.owner}")

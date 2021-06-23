@@ -10,7 +10,12 @@ class CurrentAccount(
 
     override fun withdraw(value: Double) {
         val tax = value + 0.1
-        super.withdraw(tax)
+
+        if(this.balance >= tax){
+            this.balance -= tax
+        }
+
+
     }
 
 }

@@ -1,12 +1,12 @@
 package entities.account
 
-open class Account(
+abstract class Account(
     val owner: String,
     val numberAccount: Int
 ) {
 
     var balance = 0.0
-        private set
+        protected set
 
 //    segundo construtor, pode ser usado para uma logica a mais na hora de
 //    iniciar a classe, mas por padrao o construtor primario deve ser usado
@@ -23,27 +23,7 @@ open class Account(
         this.balance += value
     }
 
-    open fun withdraw(value: Double) {
-        when {
-            this.balance < 0.0 -> {
-                println()
-                println("Your balance is negative $ ${this.balance}")
-                return
-            }
-            this.balance == 0.0 -> {
-                println()
-                println("Your balance is empty $ ${this.balance}")
-                return
-            }
-            this.balance < value -> {
-                println()
-                println("${this.owner}, the value informed is greater than the available $ ${this.balance}")
-                return
-            }
-        }
-
-        this.balance -= value
-    }
+    abstract fun withdraw(value: Double)
 
     fun transfer(accountDestination: Account, value: Double): Boolean {
         when {

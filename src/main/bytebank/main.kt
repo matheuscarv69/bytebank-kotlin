@@ -1,11 +1,9 @@
 import entities.account.Account
-import methods.EmployeeTests
 
 fun main() {
     println("Welcome to Bytebank")
 
-    EmployeeTests()
-
+    accountBehavioralTests()
 }
 
 fun printAccountInformation(accountMatheus: Account, operation: String, value: Double) {

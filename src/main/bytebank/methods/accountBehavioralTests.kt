@@ -1,8 +1,9 @@
-import entities.account.Account
+import entities.account.CurrentAccount
+import entities.account.SavingsAccount
 
 fun accountBehavioralTests() {
     // usando labels na criacao de uma conta
-    val accountMatheus = Account(owner = "Matheus", numberAccount = 1000)
+    val accountMatheus = CurrentAccount(owner = "Matheus", numberAccount = 1000)
     accountMatheus.deposit(535.0)
     println(
         "entities.account.Account Owner: ${accountMatheus.owner}," +
@@ -11,7 +12,7 @@ fun accountBehavioralTests() {
 
     // usando labels na criacao de uma conta, a ordem nao importa,desde que sejam
     // usados os mesmos nomes de variaveis que estao no construtor
-    val accountFran = Account(numberAccount = 2000, owner = "Fran")
+    val accountFran = SavingsAccount(numberAccount = 2000, owner = "Fran")
     accountFran.deposit(1550.0)
 
     println(
