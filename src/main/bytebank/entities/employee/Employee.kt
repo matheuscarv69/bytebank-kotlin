@@ -1,6 +1,6 @@
 package entities.employee
 
-open class Employee(
+abstract class Employee(
     val name: String,
     val cpf: String,
     val salary: Double,
@@ -9,7 +9,7 @@ open class Employee(
     /**
      * Era uma funcao que foi convertida em propriedade
      * */
-    open val bonus: Double get() = salary * 0.1
+    abstract val bonus: Double
 
     /**
      * A funcao/property acima também pode ser escrita

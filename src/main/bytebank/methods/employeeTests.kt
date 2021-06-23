@@ -3,11 +3,10 @@ package methods
 import entities.bonus.CalculatorBonus
 import entities.employee.Analist
 import entities.employee.Director
-import entities.employee.Employee
 import entities.employee.Manager
 
 fun EmployeeTests() {
-    val matheus = Employee(
+    val matheus = Analist(
         name = "Matheus",
         cpf = "111.111.111-11",
         salary = 1000.0,

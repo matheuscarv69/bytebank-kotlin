@@ -10,6 +10,6 @@ class Analist(
     salary = salary
 ) {
 
-    override val bonus: Double = super.bonus + salary * 0.1
+    override val bonus: Double = salary * 0.1 + salary * 0.1
 
 }

@@ -12,7 +12,7 @@ class Director(
     salary = salary
 ) {
 
-    override val bonus: Double = super.bonus + salary + plr
+    override val bonus: Double = salary * 0.1 + salary + plr
 
     fun autentica(password: Int): Boolean {
         if (this.password == password) {
