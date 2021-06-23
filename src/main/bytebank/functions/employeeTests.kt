@@ -1,4 +1,4 @@
-package methods
+package functions
 
 import entities.bonus.CalculatorBonus
 import entities.employee.Analist
@@ -29,7 +29,7 @@ fun EmployeeTests() {
     println("salary ${fran.salary}")
     println("bonus ${fran.bonus}")
 
-    if (fran.autentica(21234)) {
+    if (fran.autenticate(21234)) {
         println("Manager ${fran.name} is autenticated")
     } else {
         println("Manager ${fran.name} is not autenticated")
@@ -60,7 +60,7 @@ fun EmployeeTests() {
     println("salary ${maria.salary}")
     println("bonus ${maria.bonus}")
 
-    if (gui.autentica(1234)) {
+    if (gui.autenticate(1234)) {
         println("Analist ${maria.name} is autenticated")
     } else {
         println("Analist ${maria.name} is not autenticated")

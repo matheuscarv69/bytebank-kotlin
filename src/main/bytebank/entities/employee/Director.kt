@@ -4,22 +4,15 @@ class Director(
     name: String,
     cpf: String,
     salary: Double,
-    val password: Int,
+    password: Int,
     val plr: Double
-) : Employee(
+) : AdminEmployee(
     name = name,
     cpf = cpf,
-    salary = salary
+    salary = salary,
+    password = password
 ) {
 
     override val bonus: Double = salary * 0.1 + salary + plr
-
-    fun autentica(password: Int): Boolean {
-        if (this.password == password) {
-            return true
-        }
-        return false
-    }
-
 
 }

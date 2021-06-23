@@ -4,20 +4,14 @@ class Manager(
     name: String,
     cpf: String,
     salary: Double,
-    val password: Int
-) : Employee(
+    password: Int
+) : AdminEmployee(
     name = name,
     cpf = cpf,
-    salary = salary
+    salary = salary,
+    password = password
 ) {
 
     override val bonus: Double = salary * 0.1 + salary
-
-    fun autentica(password: Int): Boolean {
-        if (this.password == password) {
-            return true
-        }
-        return false
-    }
 
 }

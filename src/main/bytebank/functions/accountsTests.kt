@@ -1,4 +1,4 @@
-package methods
+package functions
 
 import entities.account.CurrentAccount
 import entities.account.SavingsAccount
