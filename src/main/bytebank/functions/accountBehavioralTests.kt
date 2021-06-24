@@ -1,32 +1,44 @@
 import entities.account.CurrentAccount
 import entities.account.SalaryAccount
 import entities.account.SavingsAccount
+import entities.clients.Address
+import entities.clients.Client
 import functions.printAccountInformation
 
 fun accountBehavioralTests() {
+
+    val matheus = Client(name = "Matheus", cpf = "111.111.111-11", password = 1234)
+
     // usando labels na criacao de uma conta
-    val accountMatheus = CurrentAccount(owner = "Matheus", numberAccount = 1000)
+    val accountMatheus = CurrentAccount(owner = matheus, numberAccount = 1000)
     accountMatheus.deposit(535.0)
     println(
-        "Account Owner: ${accountMatheus.owner}," +
+        "Account Owner: ${accountMatheus.owner.name}," +
                 " Number: ${accountMatheus.numberAccount}, Balance: ${accountMatheus.balance}"
     )
 
-    // usando labels na criacao de uma conta, a ordem nao importa,desde que sejam
-    // usados os mesmos nomes de variaveis que estao no construtor
-    val accountFran = SavingsAccount(numberAccount = 2000, owner = "Fran")
+    val fran = Client(name = "Fran", cpf = "222.222.222-22", password = 1234)
+
+    val accountFran = SavingsAccount(numberAccount = 2000, owner = fran)
     accountFran.deposit(1550.0)
 
     println(
-        "Account Owner: ${accountFran.owner}," +
+        "Account Owner: ${accountFran.owner.name}," +
                 " Number: ${accountFran.numberAccount}, Balance: ${accountFran.balance}"
     )
 
-    val catSalaryAccount = SalaryAccount(numberAccount = 3000, owner = "Cat")
+    val cat = Client(
+        name = "Cat",
+        cpf = "333.333.333-33",
+        address = Address(publicPlace = "Av Abel Monteiro Reis"),
+        password = 1234
+    )
+
+    val catSalaryAccount = SalaryAccount(numberAccount = 3000, owner = cat)
     catSalaryAccount.deposit(1000.0)
 
     println(
-        "Account Owner: ${catSalaryAccount.owner}," +
+        "Account Owner: ${catSalaryAccount.owner.name}, Address: ${catSalaryAccount.owner.address.publicPlace}," +
                 " Number: ${catSalaryAccount.numberAccount}, Balance: ${catSalaryAccount.balance}"
     )
 
@@ -43,7 +55,7 @@ fun accountBehavioralTests() {
     printAccountInformation(accountFran, "Withdraw", 1000.0)
 
     catSalaryAccount.withdraw(1000.0)
-    printAccountInformation(catSalaryAccount, "Withdraw", 200.0)
+    printAccountInformation(catSalaryAccount, "Withdraw", 1000.0)
 
     // as labels também funcionam para funcoes
     if (accountFran.transfer(accountDestination = accountMatheus, value = 700.0)) {

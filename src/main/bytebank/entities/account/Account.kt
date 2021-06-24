@@ -1,20 +1,14 @@
 package entities.account
 
+import entities.clients.Client
+
 abstract class Account(
-    val owner: String,
+    val owner: Client,
     val numberAccount: Int
 ) {
 
     var balance = 0.0
         protected set
-
-//    segundo construtor, pode ser usado para uma logica a mais na hora de
-//    iniciar a classe, mas por padrao o construtor primario deve ser usado
-//    constructor(owner: String, numberAccount: Int) {
-//        this.owner = owner
-//        this.numberAccount = numberAccount
-//    }
-
 
     fun deposit(value: Double) {
         if (value < 0.0) {

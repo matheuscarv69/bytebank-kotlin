@@ -5,6 +5,7 @@ import entities.employee.Authenticable
 class Client(
     val name: String,
     val cpf: String,
+    var address: Address = Address(),
     private val password: Int
 ) : Authenticable {
 

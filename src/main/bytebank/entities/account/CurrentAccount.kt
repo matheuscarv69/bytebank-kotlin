@@ -1,7 +1,9 @@
 package entities.account
 
+import entities.clients.Client
+
 class CurrentAccount(
-    owner: String,
+    owner: Client,
     numberAccount: Int
 ) : TransferAccount(
     owner = owner,
