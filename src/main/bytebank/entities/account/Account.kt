@@ -2,6 +2,11 @@ package entities.account
 
 import entities.clients.Client
 
+// property global, por conta do private,
+// ela so pode ser alterada aqui nesse artigo
+var totalAccount = 0
+    private set
+
 abstract class Account(
     val owner: Client,
     val numberAccount: Int
@@ -9,6 +14,11 @@ abstract class Account(
 
     var balance = 0.0
         protected set
+
+    init {
+        println("Iniciou aqui")
+        totalAccount++
+    }
 
     fun deposit(value: Double) {
         if (value < 0.0) {
@@ -19,7 +29,6 @@ abstract class Account(
     }
 
     abstract fun withdraw(value: Double)
-
 
 
 }
