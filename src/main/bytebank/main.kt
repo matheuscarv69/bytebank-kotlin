@@ -1,7 +1,7 @@
 import core.InternalSystem
+import entities.account.Account
 import entities.account.CurrentAccount
 import entities.account.SavingsAccount
-import entities.account.totalAccount
 import entities.clients.Client
 import entities.employee.Authenticable
 
@@ -13,7 +13,7 @@ fun main() {
 
     accountBehavioralTests()
 
-    println("Total of accounts: $totalAccount")
+    println("Total of accounts: ${Account.totalAccounts}")
 
     val anonymousClient = object : Authenticable {
         val name: String = "Anonymous"
