@@ -1,39 +1,16 @@
 import entities.clients.Address
-import exceptions.InsufficientFunds
-import functions.insufficientFundsTests
 
 fun main() {
 
-//    funcao1()
+    var nullAddress : Address = Address(publicPlace = "Av Abel Monteiro Reis")
+//    var nullAddress: Address? = null
 
-    insufficientFundsTests()
+    val newAddress: String? = nullAddress?.publicPlace
 
-}
-
-
-fun funcao1() {
-    println("início funcao1")
-
-    try {
-        funcao2()
-    } catch (e: InsufficientFunds) {
-        println("InsufficientFunds find")
-        e.printStackTrace()
+    nullAddress?.let { possibleAddress: Address ->
+        println(possibleAddress.publicPlace)
+        println(possibleAddress.publicPlace.length)
     }
 
-    println("fim funcao1")
+
 }
-
-fun funcao2() {
-    println("início funcao2")
-
-    for (i in 1..5) {
-        println(i)
-
-        val address = Address()
-        throw InsufficientFunds("Insufficient Funds")
-    }
-
-    println("fim funcao2")
-}
-
