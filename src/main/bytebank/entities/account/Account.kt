@@ -6,7 +6,8 @@ import entities.employee.Authenticable
 abstract class Account(
     val owner: Client,
     val numberAccount: Int
-) : Authenticable {
+    // usando delegacao no padrao do kotlin, dessa forma nao eh preciso fazer um override do metodo autenticate
+) : Authenticable by owner {
 
     var balance = 0.0
         protected set
@@ -20,10 +21,6 @@ abstract class Account(
     init {
         println("Iniciou a classe Account")
         totalAccounts++
-    }
-
-    override fun autenticate(password: Int): Boolean {
-        return this.owner.autenticate(password)
     }
 
     fun deposit(value: Double) {
