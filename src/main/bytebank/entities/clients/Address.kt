@@ -7,7 +7,7 @@ class Address(
     var city: String = "",
     var state: String = "",
     var cep: String = "",
-    var complement: String = ""
+    var complement: String? = null
 ) {
 
     override fun toString(): String {
