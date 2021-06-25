@@ -3,6 +3,7 @@ import entities.account.SalaryAccount
 import entities.account.SavingsAccount
 import entities.clients.Address
 import entities.clients.Client
+import exceptions.InsufficientFunds
 import functions.printAccountInformation
 
 fun accountBehavioralTests() {
@@ -58,12 +59,13 @@ fun accountBehavioralTests() {
     printAccountInformation(catSalaryAccount, "Withdraw", 1000.0)
 
     // as labels também funcionam para funcoes
-    if (accountFran.transfer(accountDestination = accountMatheus, value = 700.0)) {
+    try {
+        accountFran.transfer(accountDestination = accountMatheus, value = 700.0, password = 1321)
         printAccountInformation(accountFran, "Transfer", 700.0)
         printAccountInformation(accountMatheus, "Receive", 700.0)
-    } else {
-        println()
-        println("Transfer Failed")
+    } catch (e: InsufficientFunds) {
+        println(e.message)
+        e.printStackTrace()
     }
 
 //    catSalaryAccount.transfer(200.0, accountMatheus)

@@ -33,19 +33,19 @@ fun AccountsTests() {
     println("Saving Balance: $ ${savingsAccount.balance}")
 
 
-    currentAccount.transfer(
-        accountDestination = savingsAccount,
-        value = 100.0
-    )
+//    currentAccount.transfer(
+//        accountDestination = savingsAccount,
+//        value = 100.0
+//    )
 
     println("Transfer Current to Saving")
     println("Current Balance: $ ${currentAccount.balance}")
     println("Saving Balance: $ ${savingsAccount.balance}")
 
-    savingsAccount.transfer(
-        accountDestination = currentAccount,
-        value = 100.0
-    )
+//    savingsAccount.transfer(
+//        accountDestination = currentAccount,
+//        value = 100.0
+//    )
 
     println("Transfer Saving to Current")
     println("Current Balance: $ ${currentAccount.balance}")
