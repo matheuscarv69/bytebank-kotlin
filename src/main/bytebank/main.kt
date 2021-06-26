@@ -3,8 +3,8 @@ import java.lang.IllegalStateException
 
 fun main() {
 
-//    var nullAddress: Address = Address(publicPlace = "Av Abel Monteiro Reis", complement = "verde")
-    var nullAddress: Address = Address(publicPlace = "Av Abel Monteiro Reis")
+    var nullAddress: Address = Address(publicPlace = "Av Abel Monteiro Reis", complement = "verde")
+//    var nullAddress: Address = Address(publicPlace = "Av Abel Monteiro Reis")
 //    var nullAddress: Address? = null
 
     val newAddress: String? = nullAddress?.publicPlace
@@ -21,6 +21,21 @@ fun main() {
         val complementSizeWithException: Int =
             possibleAddress.complement?.length ?: throw IllegalStateException("Complement is empty")
     }
+
+
+    // testando o safe cast
+    safeCastTest(1)
+    // ira atribuir null para o number
+    safeCastTest("potato")
+
+}
+
+fun safeCastTest(value: Any){
+    // o safe cast garante que quando o cast nao for possivel a exception nao seja lancada,
+    // dessa forma o number ali em baixo irah receber um null caso seja feito o cast
+    // de uma string por exemplo
+    val number: Int? = value as? Int
+    println(number)
 
 
 }
