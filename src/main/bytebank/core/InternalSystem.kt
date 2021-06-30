@@ -7,14 +7,15 @@ class InternalSystem {
 
     fun entry(
         adminEmployee: Authenticable,
-        password: Int
+        password: Int,
+        authenticated: () -> Unit = {}
     ) {
         if (adminEmployee.autenticate(password)) {
             println("Welcome to Bytebank")
-            println("User is autenticated")
-            return
+            authenticated()
+        } else {
+            println("Opss...User is not autenticated")
         }
-        println("Opss...User is not autenticated")
     }
 
 
