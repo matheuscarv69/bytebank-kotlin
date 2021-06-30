@@ -14,6 +14,7 @@ fun CounterAccountsTests() {
 
     println("Total of accounts: ${Account.totalAccounts}")
 
+    // object declaration
     val anonymousClient = object : Authenticable {
         val name: String = "Anonymous"
         val cpf: String = "123.321.213-32"
